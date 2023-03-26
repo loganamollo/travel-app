@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import NavBar from '@/components/NavBar'
+import Login from '@/components/user/Login'
 
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Login />
         <NavBar />
         <h1>Travel App</h1>
       </main>
