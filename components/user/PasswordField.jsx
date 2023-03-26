@@ -26,7 +26,8 @@ export default function PasswordField({
       fullWidth
       inputRef={passwordRef}
       required
-      inputProps={{
+      inputProps={{minLength:6}}
+      InputProps={{
         endAdornment: (
           <InputAdornment position="end">
             <IconButton onClick={handleClick} onMouseDown={handleMouseDown}>
