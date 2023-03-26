@@ -2,9 +2,12 @@ import { useValue } from "@/context/ContextProvider";
 import { Mail, Notifications } from "@mui/icons-material";
 import { Avatar, Badge, Box, IconButton, Tooltip } from "@mui/material";
 import Image from "next/image";
+import { useState } from "react";
+import UserMenu from "./UserMenu";
 
 export default function UserIcons () {
   const { state: { currentUser }} = useValue()
+  const [anchorUserMenu, setAnchorUserMenu] = useState(null)
   return (
     <Box>
       <IconButton size="large" color="inherit">
@@ -18,7 +21,7 @@ export default function UserIcons () {
         </Badge>
       </IconButton>
       <Tooltip title="Open User Settings">
-        <IconButton>
+        <IconButton onClick={(e) => setAnchorUserMenu(e.currentTarget)}>
           <Avatar >
             {
               currentUser.photoURL 
@@ -30,6 +33,7 @@ export default function UserIcons () {
           </Avatar>
         </IconButton>
       </Tooltip>
+      <UserMenu {...{anchorUserMenu, setAnchorUserMenu}} />
     </Box>
   )
 }
